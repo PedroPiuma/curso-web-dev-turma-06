@@ -20,3 +20,9 @@ para preparar os arquivos para commit
 Adicionar do main para o origin:
                                 (remoto)(local)
                     git push -u origin main
+
+Criar nova branch: 
+                    git branch -M 'nova-branch'
+
+Trocar de branch:
+                    git checkout main
