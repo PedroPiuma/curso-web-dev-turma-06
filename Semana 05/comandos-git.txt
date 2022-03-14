@@ -16,3 +16,7 @@ Mostrar log, histórico, registros dos commits:
 
 Para fazer commit é necessário usar git add antes 
 para preparar os arquivos para commit
+
+Adicionar do main para o origin:
+                                (remoto)(local)
+                    git push -u origin main
