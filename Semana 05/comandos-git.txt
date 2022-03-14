@@ -12,3 +12,7 @@ Fazer um commit:
 
 Mostrar log, histórico, registros dos commits: 
                     git log
+
+
+Para fazer commit é necessário usar git add antes 
+para preparar os arquivos para commit
