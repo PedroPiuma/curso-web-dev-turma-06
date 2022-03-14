@@ -1,3 +1,7 @@
 Iniciar repositório local: git init
 
 Adicionar arquivo no repositório: git add "arquivo.extensao"
+Adicionar todos arquivos não trackiados: git add .
+Fazer um commit: git commit -m "initial comit"
+
+git log
