@@ -1,0 +1,20 @@
+Dia 14/02/2022 - Comprei Astra hoje
+
+Aulas: Seg, Quart e Quinta
+Monitorias: Terç, Sext
+
+Ferramenta de labirinto- Algoritmo: https://blockly.games/maze?lang=pt-br
+
+Ferramentas:
+    - Silent Teacher
+    - Computer TI
+
+Comandos do terminal:
+    - cd 
+    - cd ..
+    - ls -> lista arquivos da pasta
+    - node main.js -> executa o arquivo
+
+
+Comandos do JS:
+    \n -> quebra a linha no JS

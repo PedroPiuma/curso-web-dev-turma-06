@@ -1,0 +1,3 @@
+Iniciar repositório local: git init
+
+Adicionar arquivo no repositório: git add "arquivo.extensao"
