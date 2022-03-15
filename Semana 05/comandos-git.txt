@@ -28,3 +28,15 @@ Criar nova branch:
 
 Trocar de branch:
                     git checkout main
+
+Para clonar repositório do remoto para local:
+                    git clone (link https)
+
+Puxa do remoto para o local:
+                    git pull
+
+Deletar branch local:
+                    git branch -d (nome)
+
+Renomar branch:
+                    git branch -M (nome-velho) (nome-novo)
