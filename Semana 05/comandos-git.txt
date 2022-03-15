@@ -21,6 +21,8 @@ Adicionar do main para o origin:
                                 (remoto)(local)
                     git push -u origin main
 
+                    git push origin nova-branch
+
 Criar nova branch: 
                     git branch -M 'nova-branch'
 
