@@ -1,0 +1,1 @@
+export const mostra = parametro => console.log(parametro)
