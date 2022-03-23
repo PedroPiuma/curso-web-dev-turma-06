@@ -1,0 +1,23 @@
+body {
+  background-color: antiquewhite;
+  font-size: 12px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+  background-color: darkcyan;
+}
+
+p,
+ol,
+ul,
+a {
+  font-size: 12px;
+}
+
+img {
+  max-width: 300px;
+}

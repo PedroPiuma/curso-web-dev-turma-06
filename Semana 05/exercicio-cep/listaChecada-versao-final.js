@@ -1,16 +1,17 @@
 import getCEP from "./getCEPs.js"
 const listaChecada = async lista => {
-    const response = lista.map(async e => {
-        const result = await getCEP(e)
-        if (!result.erro) {
-            return { logradouro: result.logradouro, bairro: result.bairro, localidade: result.localidade, uf: result.uf, cep: result.cep }
-        } else {
-            return ''
-        }
+    const response = await Promise.all(
+        lista.map(e => {
+            const result = getCEP(e)
+            return result
+        })
+    )
+    const filtrado = response.filter(e => !e.erro).map(e => {
+        const { logradouro, bairro, localidade, uf, cep } = e
+        return { logradouro, bairro, localidade, uf, cep }
     })
-
-    await Promise.all(response)
-    return response
+    console.log(filtrado)
+    return filtrado
 }
 export default listaChecada
 

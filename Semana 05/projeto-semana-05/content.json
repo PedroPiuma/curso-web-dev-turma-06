@@ -1,1 +1,32 @@
-[{"id":1,"name":"ketchup","preco":"R$15.90"},{"id":2,"name":"mostarda","preco":"R$15.90"},{"id":3,"name":"batata","preco":"R$4.85"},{"id":4,"name":"cebola","preco":"R$3.15"},{"id":5,"name":"abacaxi","preco":"R$23.32"}]
+[
+  {
+    "id": 1,
+    "name": "ketchup",
+    "preco": "R$15.90",
+    "tipo": "a"
+  },
+  {
+    "id": 2,
+    "name": "mostarda",
+    "preco": "R$15.90",
+    "tipo": "b"
+  },
+  {
+    "id": 3,
+    "name": "batata",
+    "preco": "R$4.85",
+    "tipo": "c"
+  },
+  {
+    "id": 4,
+    "name": "cebola",
+    "preco": "R$3.15",
+    "tipo": "d"
+  },
+  {
+    "id": 5,
+    "name": "abacaxi",
+    "preco": "R$23.32",
+    "tipo": "e"
+  }
+]

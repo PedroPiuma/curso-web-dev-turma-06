@@ -1,0 +1,38 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+h1 {
+  color: red;
+}
+
+p {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 60px;
+  color: blueviolet;
+}
+
+.div-body {
+  background-color: black;
+  margin: 25px;
+  padding: 25px;
+  width: 500px;
+  height: 750px;
+}
+
+#fundo-azul {
+  background-color: blue;
+}

@@ -4,18 +4,18 @@ const newList = lista.toString().split('\r\n') // Separa a lista em linhas
 console.log(newList)
 
 let result = [];
-let headers = newList[0].split(",") // Guarda as propriedades
+let propriedades = newList[0].split(",") // Guarda as propriedades
 
 for (let i = 1; i < newList.length; i++) {
     let obj = {}
     let linha = newList[i]
-    let properties = linha.split(",") // Separa a linha em elementos
-    console.log(properties)
+    let valores = linha.split(",") // Separa a linha em elementos
+    console.log(valores)
 
-    for (let j = 0; j < properties.length; j++) {
-        if (headers[j] === 'id') { obj[headers[j]] = Number(properties[j]) }
-        else if (headers[j] === 'preco') { obj[headers[j]] = `R$${Number(properties[j]).toFixed(2)}` }
-        else obj[headers[j]] = properties[j]
+    for (let j = 0; j < valores.length; j++) { // Itera sobre cada elemento da linha
+        obj[propriedades[j]] = propriedades[j] === 'id' ? Number(valores[j])
+            : propriedades[j] === 'preco' ? `R$${Number(valores[j]).toFixed(2)}`
+                : obj[propriedades[j]] = valores[j]
     }
     result.push(obj)
 }

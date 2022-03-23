@@ -1,19 +1,11 @@
 import saveToJSON from './saveToJSON.js'
 import geradoraDeCEPs from './geradoraDeCEPs.js'
-import listaChecada from './listaChecada.js'
-
-const filterList = lista => {
-    return lista.filter(e => e)
-}
+import listaChecada from './listaChecada-versao-final.js'
 
 const main = async () => {
-    const lista = await geradoraDeCEPs()
-    console.log(lista)
+    const lista = geradoraDeCEPs()
     const ceps = await listaChecada(lista)
-    console.log(ceps)
-    const newList = await filterList(ceps)
-    console.log(newList)
-    saveToJSON(newList, 'ceps.json')
+    saveToJSON(ceps, 'ceps.json')
 }
 main()
 
