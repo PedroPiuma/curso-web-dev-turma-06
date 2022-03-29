@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "logradouro": "Praça Floriano Frederic Gurtler",
+    "bairro": "São Pedro",
+    "localidade": "Vitória",
+    "uf": "ES",
+    "cep": "29030-290"
+  },
+  {
+    "logradouro": "Rua Alexandre Martins de Figueiredo",
+    "bairro": "Segurança do Lar",
+    "localidade": "Vitória",
+    "uf": "ES",
+    "cep": "29072-315"
+  }
+]

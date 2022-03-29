@@ -1,0 +1,55 @@
+/* LISTA DE BREAKPOINTS
+Mobile - Padrão
+Acima de 576px (Landscape)
+Acima de 768px (Tablets)
+Acima de 992px (Dispositivos Grandes)
+Acima de 1200px (Dispositivos Extra Grandes)
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.div {
+  width: 331px;
+  height: 200px;
+  border: 1px solid black;
+  background-color: aquamarine;
+}
+
+.paragraph {
+  font-size: 18px;
+}
+
+@media (max-width: 991px) {
+  .paragraph {
+    font-size: 16px;
+  }
+
+  .div {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .paragraph {
+    font-size: 14px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
