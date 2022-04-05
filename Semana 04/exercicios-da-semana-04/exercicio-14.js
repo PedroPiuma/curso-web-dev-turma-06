@@ -48,7 +48,7 @@ const clts = employees => employees.filter(e => e.type === 'clt')
 
 const novaBaseSalarial = employees => employees.map(e => e.salary = `R$ ${21250.5.toFixed(2)}`)
 novaBaseSalarial(employees)
-// console.log(employees)
+console.log(employees)
 
 const separador = employees => {
     console.log(clts(employees))
@@ -58,4 +58,4 @@ const separador = employees => {
 // separador(employees)
 
 const ageActiveOrder = employees => ativos(employees).sort((a, b) => a.age - b.age)
-console.log(ageActiveOrder(employees))
+// console.log(ageActiveOrder(employees))
