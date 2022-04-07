@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+
+    <main>
+        <h1>Cálculadora</h1>
+
+        <form id="formulario">
+            <label for="valueOne">
+                Primeiro Valor:
+                <input type="number" name="valueOne" id="valueOne">
+            </label>
+
+            <label for="valueTow">
+                Segundo valor:
+                <input type="number" name="valueTwo">
+            </label>
+
+            <select name="operador" id="seletor">
+                <option value="+" selected>Somar</option>
+                <option value="-">Subtração</option>
+                <option value="*">Multiplicar</option>
+                <option value="/">Dividir</option>
+            </select>
+
+            <button id="botao-calcular">Calcular</button>
+
+        </form>
+    </main>
+    <script src="./main.js"></script>
+</body>
+
+</html>
