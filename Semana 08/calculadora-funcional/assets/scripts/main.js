@@ -9,55 +9,128 @@ const operator = {
     '/': division,
 }
 let aux = []
+let flag = 0
 
+const form = document.querySelector('#calculator')
+const input = document.querySelector('.calculator-container-input')
+
+const clearFunction = (eventValue) => {
+    aux = []
+    flag = 0
+    input.setAttribute('placeholder', '🚀')
+    input.value = ''
+}
+
+const operatorFunction = (eventValue) => {
+    if (flag === 0) {
+        aux.push(input.value, eventValue)
+        input.value = ''
+        input.setAttribute('placeholder', aux[0])
+        input.classList.remove('placeholder-black')
+        flag = 1
+        return
+    } else {
+        aux.push(input.value)
+        const result = operator[eventValue](aux[0], aux[2])
+        aux = [result, eventValue]
+        input.value = ''
+        input.setAttribute('placeholder', result)
+        return
+    }
+}
+
+const equalFunction = (eventValue) => {
+    try {
+        flag = 0
+        aux.push(input.value, eventValue)
+        let func = operator[aux[1]]
+        const result = func(aux[0], aux[2])
+        aux = []
+        input.value = ''
+        input.setAttribute('placeholder', result)
+        input.classList.add('placeholder-black')
+        return
+    } catch (error) {
+        return console.log('Nenhuma operação realizada')
+    }
+}
 window.onload = () => {
-    const form = document.querySelector('#calculator')
-    const input = document.querySelector('.calculator-container-input')
-    let flag = 0
+    form.addEventListener('keydown', event => {
+        if (event.key in operator) {
+            event.preventDefault()
+            return operatorFunction(event.key)
+        }
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            return equalFunction('=')
+        }
+    })
+
     form.addEventListener('submit', event => {
         event.preventDefault()
         const eventValue = event.submitter.value
+
         if (eventValue === 'clear') {
-            aux = []
-            flag = 0
-            input.setAttribute('placeholder', '🚀')
-            return input.value = ''
+            return clearFunction(eventValue)
         }
 
         if (eventValue in operator) {
-            if (flag === 0) {
-                aux.push(input.value, eventValue)
-                input.value = ''
-                input.setAttribute('placeholder', aux[0])
-                input.classList.remove('placeholder-black')
-                flag = 1
-                return
-            } else {
-                aux.push(input.value)
-                const result = operator[eventValue](aux[0], aux[2])
-                aux = [result, eventValue]
-                input.value = ''
-                input.setAttribute('placeholder', result)
-                return
-            }
+            return operatorFunction(eventValue)
         }
 
         if (eventValue === '=') {
-            try {
-                flag = 0
-                aux.push(input.value, eventValue)
-                let func = operator[aux[1]]
-                const result = func(aux[0], aux[2])
-                aux = []
-                input.value = ''
-                input.setAttribute('placeholder', result)
-                input.classList.add('placeholder-black')
-                return
-            } catch (error) {
-                return console.log('Nenhuma operação realizada')
-            }
+            return equalFunction(eventValue)
         }
+
         input.value += eventValue
     })
 
 }
+
+
+
+
+
+
+// const eventValue = event.submitter.value
+// if (eventValue === 'clear') {
+//     aux = []
+//     flag = 0
+//     input.setAttribute('placeholder', '🚀')
+//     return input.value = ''
+// }
+
+// if (eventValue in operator) {
+//     if (flag === 0) {
+//         aux.push(input.value, eventValue)
+//         input.value = ''
+//         input.setAttribute('placeholder', aux[0])
+//         input.classList.remove('placeholder-black')
+//         flag = 1
+//         return
+//     } else {
+//         aux.push(input.value)
+//         const result = operator[eventValue](aux[0], aux[2])
+//         aux = [result, eventValue]
+//         input.value = ''
+//         input.setAttribute('placeholder', result)
+//         return
+//     }
+// }
+
+// if (eventValue === '=') {
+//     try {
+//         flag = 0
+//         aux.push(input.value, eventValue)
+//         let func = operator[aux[1]]
+//         const result = func(aux[0], aux[2])
+//         aux = []
+//         input.value = ''
+//         input.setAttribute('placeholder', result)
+//         input.classList.add('placeholder-black')
+//         return
+//     } catch (error) {
+//         return console.log('Nenhuma operação realizada')
+//     }
+// }
+// input.value += eventValue
