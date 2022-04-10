@@ -23,35 +23,33 @@ const clearFunction = (eventValue) => {
 
 const operatorFunction = (eventValue) => {
     if (flag === 0) {
-        aux.push(input.value, eventValue)
+        aux.push(input.value.replaceAll(" ", ""), eventValue)
         input.value = ''
         input.setAttribute('placeholder', aux[0])
         input.classList.remove('placeholder-black')
         flag = 1
-        return
+        console.log(aux)
     } else {
-        aux.push(input.value)
-        const result = operator[eventValue](aux[0], aux[2])
+        aux.push(input.value.replaceAll(" ", ""))
+        const result = operator[aux[1]](aux[0], aux[2])
         aux = [result, eventValue]
         input.value = ''
         input.setAttribute('placeholder', result)
-        return
     }
 }
 
 const equalFunction = (eventValue) => {
     try {
         flag = 0
-        aux.push(input.value, eventValue)
+        aux.push(input.value.replaceAll(" ", ""), eventValue)
         let func = operator[aux[1]]
         const result = func(aux[0], aux[2])
         aux = []
         input.value = ''
         input.setAttribute('placeholder', result)
         input.classList.add('placeholder-black')
-        return
     } catch (error) {
-        return console.log('Nenhuma operação realizada')
+        console.log('Nenhuma operação realizada')
     }
 }
 window.onload = () => {
@@ -87,11 +85,6 @@ window.onload = () => {
 
 }
 
-
-
-
-
-
 // const eventValue = event.submitter.value
 // if (eventValue === 'clear') {
 //     aux = []
@@ -99,7 +92,6 @@ window.onload = () => {
 //     input.setAttribute('placeholder', '🚀')
 //     return input.value = ''
 // }
-
 // if (eventValue in operator) {
 //     if (flag === 0) {
 //         aux.push(input.value, eventValue)
@@ -117,7 +109,6 @@ window.onload = () => {
 //         return
 //     }
 // }
-
 // if (eventValue === '=') {
 //     try {
 //         flag = 0
