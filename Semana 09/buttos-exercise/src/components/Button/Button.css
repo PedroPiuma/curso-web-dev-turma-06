@@ -1,0 +1,87 @@
+.button {
+  border: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button:hover:disabled {
+  background-color: #319795;
+}
+
+/* TEAL */
+
+.button__teal__solid {
+  background: #319795;
+  color: white;
+}
+
+.button__teal__solid:hover {
+  background: #2c7a7b;
+}
+
+.button__teal__outline {
+  color: #2c7a7b;
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.button__teal__outline:hover {
+  background: #e6fffa;
+}
+
+.button__teal__outline:hover:disabled {
+  background-color: transparent;
+}
+
+/* BLUE */
+
+.button__blue__solid {
+  background: #3182ce;
+  color: white;
+}
+
+.button__blue__solid:hover {
+  background: #2b6cb0;
+}
+
+.button__blue__outline {
+  color: #2b6cb0;
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.button__blue__outline:hover {
+  background-color: #ebf8ff;
+}
+
+/* PINK */
+
+.button__pink__solid {
+  background: #d53f8c;
+  color: white;
+}
+
+.button__pink__solid:hover {
+  background: #b83280;
+}
+
+.button__pink__outline {
+  color: #b83280;
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.button__pink__outline:hover {
+  background-color: #fff5f7;
+}

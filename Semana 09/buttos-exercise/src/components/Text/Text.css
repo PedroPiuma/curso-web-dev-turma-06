@@ -1,0 +1,30 @@
+.font-sm {
+  font-size: 12px;
+}
+
+.font-md {
+  font-size: 16px;
+}
+
+.font-lg {
+  font-size: 22px;
+}
+
+.text-red {
+  color: red;
+}
+
+.font-align-start {
+  /* text-align: start; */
+  align-self: start;
+}
+
+.font-align-center {
+  /* text-align: center; */
+  align-self: center;
+}
+
+.font-align-end {
+  /* text-align: end; */
+  align-self: end;
+}
