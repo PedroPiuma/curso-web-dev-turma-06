@@ -1,0 +1,9 @@
+Hooks
+
+useState
+
+useEffect: 
+    Sempre executado na montagem do componente e pode ser executado depois.
+    Bom para fazer requisições.
+    useEffect(() => {
+    }, [array de dependências])
