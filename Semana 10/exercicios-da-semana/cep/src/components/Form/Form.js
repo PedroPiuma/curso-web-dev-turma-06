@@ -20,12 +20,15 @@ const Form = (props) => {
     return (
         <div className='form'>
             <h1 className='margin-zero text-center'>Buscar CEP</h1>
-            <p className='text-center'>Procurando um webservice gratuito e de alto desempenho para consultar Códigos de Endereçamento Postal (CEP) do Brasil?
-                Utilize nosso serviço, melhore a qualidade de suas aplicações web e colabore para manter esta base de dados atualizada.</p>
+            <p className='text-center'>Webservice gratuito e de alto desempenho para consultar Códigos de Endereçamento Postal (CEP) do Brasil.</p>
             <form className='form-container'>
                 <div className='form-container-box'>
                     <label htmlFor='cep'>CEP</label>
                     <input id='cep' className='form-container-box-input' type='text' onChange={(event) => setCep(event.target.value)} autoComplete='off' />
+                </div>
+                <div className='form-container-box'>
+                    <label htmlFor='uf'>UF</label>
+                    <input id='uf' className='form-container-box-input' type={'text'} value={data.uf} />
                 </div>
                 <div className='form-container-box'>
                     <label htmlFor='localidade'>Localidade</label>
