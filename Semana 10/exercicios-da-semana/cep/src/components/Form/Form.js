@@ -24,19 +24,23 @@ const Form = (props) => {
                 Utilize nosso serviço, melhore a qualidade de suas aplicações web e colabore para manter esta base de dados atualizada.</p>
             <form className='form-container'>
                 <div className='form-container-box'>
-                    <label htmlFor='cep'>CEP:</label>
-                    <input id='cep' className='form-container-box-input' type={'number'} onChange={(event) => setCep(event.target.value)} autoComplete='off' />
+                    <label htmlFor='cep'>CEP</label>
+                    <input id='cep' className='form-container-box-input' type='text' onChange={(event) => setCep(event.target.value)} autoComplete='off' />
                 </div>
                 <div className='form-container-box'>
-                    <label htmlFor='logradouro'>Logradouro:</label>
+                    <label htmlFor='localidade'>Localidade</label>
+                    <input id='localidade' className='form-container-box-input' type={'text'} value={data.localidade} />
+                </div>
+                <div className='form-container-box'>
+                    <label htmlFor='logradouro'>Logradouro</label>
                     <input id='logradouro' className='form-container-box-input' type={'text'} value={data.logradouro} />
                 </div>
                 <div className='form-container-box'>
-                    <label htmlFor='complemento'>Complemento:</label>
+                    <label htmlFor='complemento'>Complemento</label>
                     <input id='complemento' className='form-container-box-input' type={'text'} value={data.complemento} />
                 </div>
                 <div className='form-container-box'>
-                    <label htmlFor='bairro'>Bairro:</label>
+                    <label htmlFor='bairro'>Bairro</label>
                     <input id='bairro' className='form-container-box-input' type={'text'} value={data.bairro} />
                 </div>
             </form>
