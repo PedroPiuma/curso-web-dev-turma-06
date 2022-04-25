@@ -15,6 +15,30 @@ const Main = () => {
         }
         request()
     }, [])
+
+    const fil = (element) => {
+        switch (filter) {
+            case 'id':
+                return element.id === checkId
+            case 'descricao':
+                return element.title.includes(checkDescription)
+            case 'completed':
+                return element.completed === checkCompleted
+            default:
+                return element
+        }
+    }
+
+    const placeholders = {
+        id: 'Nº do ID (Ex.: 1)',
+        descricao: 'Descrição(Ex.: delectus)'
+    }
+
+    const onchages = {
+        id: (event) => setCheckId(Number(event.target.value)),
+        descricao: (event) => setCheckDescription(event.target.value)
+    }
+
     return (
         <main className='main'>
             <h1 className='main-title'>Tarefas</h1>
@@ -24,18 +48,16 @@ const Main = () => {
                 <option value={'descricao'}>Descrição</option>
                 <option value={'completed'}>Completed</option>
             </select>
-            {filter === 'id' ? <input className='main-input' placeholder='Nº do ID (Ex.: 1)' onChange={(event) => setCheckId(Number(event.target.value))} /> :
-                filter === 'descricao' ? <input className='main-input' placeholder='Descrição(Ex.: delectus)' onChange={(event) => setCheckDescription(event.target.value)} /> :
-                    filter === 'completed' ?
-                        <div className='main-buttons'>
-                            <button className='main-input main-buttons-bt' onClick={() => setCheckCompleted(true)} >Completa</button>
-                            <button className='main-input main-buttons-bt' onClick={() => setCheckCompleted(false)} >Incompleta</button>
-                        </div> : ''}
+
+            {filter === 'id' || filter === 'descricao' ? <input className='main-input' placeholder={placeholders[filter]} onChange={onchages[filter]} /> :
+                filter === 'completed' ?
+                    <div className='main-buttons'>
+                        <button className='main-input main-buttons-bt' onClick={() => setCheckCompleted(true)} >Completa</button>
+                        <button className='main-input main-buttons-bt' onClick={() => setCheckCompleted(false)} >Incompleta</button>
+                    </div> : ''}
+
             <div className='cards-container'>
-                {filter === 'all' ? data.map(e => <Card key={e.id} id={e.id} title={e.title} />) :
-                    filter === 'id' ? data.filter(e => e.id === checkId).map(e => <Card key={e.id} id={e.id} title={e.title} />) :
-                        filter === 'descricao' ? data.filter(e => e.title.includes(checkDescription)).map(e => <Card key={e.id} id={e.id} title={e.title} />) :
-                            filter === 'completed' ? data.filter(e => e.completed === checkCompleted).map(e => <Card key={e.id} id={e.id} title={e.title} />) : ''}
+                {data.filter(e => fil(e)).map(e => <Card key={e.id} id={e.id} title={e.title} />)}
             </div>
         </main>
     )

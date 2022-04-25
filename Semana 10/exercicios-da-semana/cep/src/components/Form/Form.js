@@ -5,17 +5,24 @@ import { useEffect, useState } from 'react'
 const Form = (props) => {
     const [cep, setCep] = useState('')
     const [data, setData] = useState('')
+    const [disabled, setDisabled] = useState(false)
     useEffect(() => {
         const request = async () => {
             try {
-                const response = await axios.get(`https://viacep.com.br/ws/${cep.length === 8 ? cep : '00000001'}/json`)
+                setDisabled(true)
+                const response = await axios.get(`https://viacep.com.br/ws/${cep}/json`)
+                console.log(response.data)
+                if (response.data.erro) {
+                    alert('CEP Inválido')
+                }
                 return setData(response.data)
-            }
-            catch (error) {
+            } catch (error) {
                 console.log('Erro')
+            } finally {
+                setDisabled(false)
             }
         }
-        request()
+        if (cep.length === 8) request()
     }, [cep])
     return (
         <div className='form'>
@@ -24,27 +31,27 @@ const Form = (props) => {
             <form className='form-container'>
                 <div className='form-container-box'>
                     <label htmlFor='cep'>CEP</label>
-                    <input id='cep' className='form-container-box-input' type='text' onChange={(event) => setCep(event.target.value)} autoComplete='off' />
+                    <input id='cep' className='form-container-box-input' type='text' maxLength={8} onChange={(event) => setCep(event.target.value)} autoComplete='off' disabled={disabled} />
                 </div>
                 <div className='form-container-box'>
                     <label htmlFor='uf'>UF</label>
-                    <input id='uf' className='form-container-box-input' type={'text'} value={data.uf} />
+                    <input id='uf' className='form-container-box-input' type={'text'} defaultValue={data.uf ? data.uf : ''} />
                 </div>
                 <div className='form-container-box'>
                     <label htmlFor='localidade'>Localidade</label>
-                    <input id='localidade' className='form-container-box-input' type={'text'} value={data.localidade} />
+                    <input id='localidade' className='form-container-box-input' type={'text'} defaultValue={data.localidade ? data.localidade : ''} />
                 </div>
                 <div className='form-container-box'>
                     <label htmlFor='logradouro'>Logradouro</label>
-                    <input id='logradouro' className='form-container-box-input' type={'text'} value={data.logradouro} />
+                    <input id='logradouro' className='form-container-box-input' type={'text'} defaultValue={data.logradouro ? data.logradouro : ''} />
                 </div>
                 <div className='form-container-box'>
                     <label htmlFor='complemento'>Complemento</label>
-                    <input id='complemento' className='form-container-box-input' type={'text'} value={data.complemento} />
+                    <input id='complemento' className='form-container-box-input' type={'text'} defaultValue={data.complemento ? data.complemento : ''} />
                 </div>
                 <div className='form-container-box'>
                     <label htmlFor='bairro'>Bairro</label>
-                    <input id='bairro' className='form-container-box-input' type={'text'} value={data.bairro} />
+                    <input id='bairro' className='form-container-box-input' type={'text'} defaultValue={data.bairro ? data.bairro : ''} />
                 </div>
             </form>
         </div>
